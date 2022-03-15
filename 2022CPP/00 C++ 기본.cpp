@@ -1,8 +1,9 @@
-#include <stdio.h>
+ï»¿//std::coutì„ í¬í•¨í•˜ê³  ìˆìŒ
+#include <iostream>
 
 int main(void)
 {
-	//std::cout °´Ã¼·Î ¹®ÀÚ¿­À» Ãâ·Â
-	std::cout << "¾È³ç ¼¼»ó¾Æ\n";
+	//std::cout ê°ì²´ë¡œ ë¬¸ìì—´ì„ ì¶œë ¥
+	std::cout << "ì•ˆë…• ì„¸ìƒì•„\n";
 	return 0;
 }
