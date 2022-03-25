@@ -9,8 +9,8 @@ void jungjuk() {
 
 int main(void)
 {
-	jungjuk();
-	jungjuk();
-	jungjuk();
+	jungjuk(); //0
+	jungjuk(); //0
+	jungjuk(); //0
 	return 0;
 }
