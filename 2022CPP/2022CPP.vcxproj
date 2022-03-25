@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\2022C_basic\07 포인터 기본.c" />
     <ClCompile Include="static 변수.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
