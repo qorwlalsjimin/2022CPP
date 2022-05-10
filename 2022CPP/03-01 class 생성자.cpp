@@ -22,9 +22,11 @@ Student::Student() {
 	cout << "학번이 등록되었습니다." << endl;
 }
 
-Student::Student(int nHakbun, string sName) {
-	this->nHakbun = nHakbun;
-	this->sName = sName;
+// 멤버변수를 초기화 할 수 있으며 따라서,
+// const형 변수와 참조형 변수를 멤버변수로 할 수 있다.
+Student::Student(int Hakbun, string Name)
+	: nHakbun(Hakbun), sName(Name) //멤버변수(매개변수)
+{
 	cout << "학번이 등록되었습니다." << endl;
 }
 
