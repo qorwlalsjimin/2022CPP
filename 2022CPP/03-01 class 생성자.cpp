@@ -43,18 +43,22 @@ int main() {
 	//Student stu2 = Student(1111,"BJM");
 	//stu2.show();
 
-	int* ptr1 = new int;
-	*ptr1 = 20;
-	cout << *ptr1 << endl;
+	//int* ptr1 = new int;
+	//*ptr1 = 20;
+	//cout << *ptr1 << endl;
 
-	delete ptr1;
+	//delete ptr1;
 
-	int* ptr2 = new int[4];
-	for (int i = 0; i < 4; i++) {
-		ptr2[i] = 10 + i;
-		cout << ptr2[i] << " ";
-	}
-	delete []ptr2; //배열을 날리려면 꼭 [] 쳐줘야함
+	//int* ptr2 = new int[4];
+	//for (int i = 0; i < 4; i++) {
+	//	ptr2[i] = 10 + i;
+	//	cout << ptr2[i] << " ";
+	//}
+	//delete []ptr2; //배열을 날리려면 꼭 [] 쳐줘야함
+
+	Student* stu2 = new Student(1111, "JWP");
+	stu2->show();
+	delete stu2;
 
 	return 0;
 }
