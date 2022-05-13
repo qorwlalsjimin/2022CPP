@@ -19,7 +19,7 @@ public:
 Student::Student() {
 	this->nHakbun = 1234;
 	this->sName = "이사랑";
-	cout << "학번이 등록되었습니다." << endl;
+	cout << "일반생성자 생성." << endl;
 }
 
 // 멤버변수를 초기화 할 수 있으며 따라서,
@@ -27,7 +27,7 @@ Student::Student() {
 Student::Student(int Hakbun, string Name)
 	: nHakbun(Hakbun), sName(Name) //멤버변수(매개변수)
 {
-	cout << "학번이 등록되었습니다." << endl;
+	cout << "일반생성자 생성." << endl;
 }
 
 void Student::show() {
@@ -56,9 +56,15 @@ int main() {
 	//}
 	//delete []ptr2; //배열을 날리려면 꼭 [] 쳐줘야함
 
-	Student* stu2 = new Student(1111, "JWP");
+	/*Student* stu2 = new Student(1111, "JWP");
 	stu2->show();
-	delete stu2;
+	delete stu2;*/
+
+	Student* stu2 = new Student[6];
+	for(int i = 0; i<6; i++)
+		stu2[i].show();
+		//->를 쓰면 오류가 나는 이유: stu2[i] == *(str2+i). 이미 *연산자가 있기 때문
+	delete []stu2;
 
 	return 0;
 }
