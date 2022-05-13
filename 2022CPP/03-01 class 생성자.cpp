@@ -48,5 +48,13 @@ int main() {
 	cout << *ptr1 << endl;
 
 	delete ptr1;
+
+	int* ptr2 = new int[4];
+	for (int i = 0; i < 4; i++) {
+		ptr2[i] = 10 + i;
+		cout << ptr2[i] << " ";
+	}
+	delete []ptr2; //배열을 날리려면 꼭 [] 쳐줘야함
+
 	return 0;
 }
