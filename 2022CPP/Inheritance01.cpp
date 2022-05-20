@@ -5,6 +5,8 @@ using namespace std;
 class Person {
 private:
 	string sName;
+
+protected:
 	int nAge;
 
 public:
@@ -26,11 +28,14 @@ Person::Person(string name, int age)
 	:sName(name), nAge(age) { } 
 
 class Student : public Person {
-public:
+private:
 	int nHakbun;
+public:
 	Student();
 	Student(string name, int age, int hakbun);
 	void study();
+//protected:
+	//void hi();
 };
 
 Student::Student() { 
@@ -41,6 +46,7 @@ Student::Student(string name, int age, int hakbun)
 
 void Student::study() {
 	hi();
+	nAge = 100;
 	cout << "ÇÐ¹ø : " << nHakbun << endl;
 }
 
@@ -56,6 +62,8 @@ int main() {
 
 	Person* people = new Person[5];
 	people[0].hi();
+	Student stu;
+	//stu.nAge = 100; //error
 	delete jimin3;
 	delete[] people;
 
@@ -63,3 +71,15 @@ int main() {
 
 	return 0;
 }
+
+class CBox {
+protected: //private:
+	double width;
+};
+
+class ChildBox : CBox {
+public:
+	void setWidth(double w) {
+		width = w;
+	}
+};
