@@ -73,13 +73,20 @@ int main() {
 }
 
 class CBox {
-protected: //private:
+//protected:
+private:
 	double width;
+public:
+	void setWidth(double w);
 };
 
 class ChildBox : CBox {
-public:
+
 	void setWidth(double w) {
-		width = w;
+		//width = w;
 	}
 };
+
+//1) ´Ù
+//2) ³ª
+//3) °¡
