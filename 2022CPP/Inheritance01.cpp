@@ -83,7 +83,7 @@ public:
 class ChildBox : CBox {
 
 	void setWidth(double w) {
-		//width = w;
+		width = w;
 	}
 };
 

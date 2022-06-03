@@ -10,7 +10,7 @@ int main(void)
 	printf("%d\n", strlen(cI));  //3
 
 	string cppI = "aaa";
-	cout << cppI.size() << endl; //3
+	cout << cppI.size() << endl; //3 //이거 쓰는게 더 좋음
 	cout << cppI.length() << endl; //3
 	return 0;
 }
