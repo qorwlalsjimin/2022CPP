@@ -25,11 +25,15 @@ Student::Student() {
 	
 }
 
-//default 대입연산자
+//대입연산자 오버로딩
 Student& Student::operator=(const Student& rhs)
 {
 	nHakbun = rhs.nHakbun;
-	sName = rhs.sName;
+	
+	cout << "대입연산자 호출" << endl;
+	int len = strlen(rhs.sName) + 1;
+	sName = new char[len];
+	strcpy(sName, rhs.sName);
 
 	return *this;
 }
@@ -50,6 +54,7 @@ Student::Student(int Hakbun, const char* Name)
 Student::Student(const Student& rhs)
 	:nHakbun(rhs.nHakbun), sName(rhs.sName)
 {
+
 }
 
 Student::~Student() {
