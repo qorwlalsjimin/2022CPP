@@ -11,8 +11,8 @@ private:
 public:
 	//생성자, 소멸자 선언
 	m_string();
-	m_string(const char* str);
-	m_string(const m_string& str);
+	m_string(const char* str); //모든 연산자에서 문자열을 받을 때 필요
+	m_string(const m_string& str);			 //	 m_string을 받을 때 필요(복사 생성자)
 	~m_string();
 
 	//연산자 오버로딩 선언
@@ -37,40 +37,38 @@ public:
 //생성자 구현
 	//기본 생성자: 멤버 변수 초기화
 m_string::m_string() {
-	//printf("기본 생성자 호출\n");
+	cout << "* 기본 생성자" << endl;
 	_Mysize = 0;
 	_Myptr = NULL;
 }
 
-	//C 스타일 문자열을 매개변수로 받는 생성자
-	// ㄴ 받은 문자열을 m_string의 _Myptr 변수에 대임
+	//받은 문자열을 m_string의 _Myptr 변수에 대입
 m_string::m_string(const char* str) {
-	//printf("char 문자열 받는 생성자 호출\n");
+	cout << "* 문자열 생성자" << str << endl;
 	_Mysize = strlen(str) + 1; //'\0'의 자리를 위해 +1
-	_Myptr = new char[_Mysize]; //동적할당
+	_Myptr = new char[_Mysize];
 	strcpy(_Myptr, str);
 }
-
-	//m_string 문자열을 매개변수로 받는 생성자
-	// ㄴ 받은 문자열을 m_string의 _Myptr 변수에 대임
+	//m_string의 복사생성자
 m_string::m_string(const m_string& str) {
-	//printf("m_string 받는 생성자 호출\n");
+	cout << "* m_string 생성자" << str << endl;
 	_Mysize = str._Mysize;
 	_Myptr = new char[_Mysize]; //동적할당
 	strcpy(_Myptr, str._Myptr);
 }
 
 //소멸자 구현
-	//_Myptr에 값이 있으면 메모리를 할당해라
 m_string::~m_string() {
-	//printf("소멸자 호출\n");
+	cout << "* 소멸자" << endl;
+
+	//_Myptr에 값이 있으면 메모리를 할당해라
 	if (_Myptr != NULL) delete[] _Myptr;
 }
 
 //연산자 오버로딩
 	//대입 연산자
 m_string& m_string::operator=(const m_string& rhs) {
-	//cout << "=연산자 호출" << endl;
+	cout << "* =연산자" << rhs << endl;
 	if (_Mysize != NULL) delete[] _Myptr;
 
 	_Mysize = strlen(rhs._Myptr) + 1;
@@ -82,8 +80,9 @@ m_string& m_string::operator=(const m_string& rhs) {
 
 	//+= 연산자
 m_string& m_string::operator+=(const m_string& rhs) {
-	//cout << "+=연산자 호출" << endl;
-	char* str = new char[_Mysize + rhs._Mysize -1];
+	cout << "* +=연산자" << rhs << endl;
+
+	char* str = new char[_Mysize + rhs._Mysize -1]; //operator+=에서만 쓸 변수
 	strcpy(str, _Myptr);
 	strcat(str, rhs._Myptr);
 	
@@ -96,31 +95,33 @@ m_string& m_string::operator+=(const m_string& rhs) {
 
 	//== 연산자
 int m_string::operator==(const m_string& rhs) {
-	//printf("==연산자 호출\n");
+	cout << "* ==연산자" << rhs << endl;
+
 	if (strcmp(_Myptr, rhs._Myptr)) return -1;
 	else return 0;
 }
 
 	//+ 연산자
 m_string m_string::operator+(const m_string& rhs) {
-	//printf("+연산자 호출\n");
+	cout << "* +연산자" << rhs << endl;
+
 	char* str = new char[_Mysize + rhs._Mysize - 1]; //operator+에서만 쓸 변수
 	strcpy(str, _Myptr);
 	strcat(str, rhs._Myptr);
 
-	m_string answer(str); //객체 생성
+	_Mysize = strlen(str)+1;
+	_Myptr = new char[_Mysize];
+	strcpy(_Myptr, str);
 	delete[] str;
 
-	return answer;
+	return *this;
 }
 
 //길이 구하는 함수 구현
 int m_string::size() {
-	//printf("size 호출\n");
 	return _Mysize-1;
 }
 int m_string::length() {
-	//printf("size 호출\n");
 	return _Mysize-1;
 }
 
