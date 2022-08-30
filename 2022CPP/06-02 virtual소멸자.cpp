@@ -5,7 +5,7 @@ using namespace std;
 class Animal {
 public:
 	Animal() { cout << "Animal 생성" << endl; }
-	~Animal() { cout << "Animal 소멸" << endl; }
+	virtual ~Animal() { cout << "Animal 소멸" << endl; }
 	virtual void roar(void) { cout << "동물짖어" << endl; }
 
 private:
@@ -17,7 +17,7 @@ private:
 class Tiger : public Animal {
 public:
 	Tiger() { cout << "Tiger 생성" << endl; }
-	~Tiger() { cout << "Tiger 소멸" << endl; }
+	virtual ~Tiger() { cout << "Tiger 소멸" << endl; }
 };
 
 void main(void) {
