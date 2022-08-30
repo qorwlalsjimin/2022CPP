@@ -17,9 +17,8 @@ public:
 
 	//연산자 오버로딩 선언
 	m_string& operator=(const m_string& rhs);
-	m_string& operator+=(const m_string& rhs);
-	int operator==(const m_string& rhs);
 	m_string operator+(const m_string& rhs);
+	int operator==(const m_string& rhs);
 
 	//함수 선언
 	int size();
@@ -37,21 +36,18 @@ public:
 //생성자 구현
 	//기본 생성자: 멤버 변수 초기화
 m_string::m_string() {
-	cout << "* 기본 생성자" << endl;
 	_Mysize = 0;
 	_Myptr = NULL;
 }
 
-	//받은 문자열을 m_string의 _Myptr 변수에 대입
+//받은 char 문자열을 m_string의 _Myptr 변수에 대입
 m_string::m_string(const char* str) {
-	cout << "* 문자열 생성자" << str << endl;
 	_Mysize = strlen(str) + 1; //'\0'의 자리를 위해 +1
 	_Myptr = new char[_Mysize];
 	strcpy(_Myptr, str);
 }
-	//m_string의 복사생성자
+//m_string의 복사생성자
 m_string::m_string(const m_string& str) {
-	cout << "* m_string 생성자" << str << endl;
 	_Mysize = str._Mysize;
 	_Myptr = new char[_Mysize]; //동적할당
 	strcpy(_Myptr, str._Myptr);
@@ -59,18 +55,14 @@ m_string::m_string(const m_string& str) {
 
 //소멸자 구현
 m_string::~m_string() {
-	cout << "* 소멸자" << endl;
-
 	//_Myptr에 값이 있으면 메모리를 할당해라
 	if (_Myptr != NULL) delete[] _Myptr;
 }
 
 //연산자 오버로딩
-	//대입 연산자
+	//= 연산자
 m_string& m_string::operator=(const m_string& rhs) {
-	cout << "* =연산자" << rhs << endl;
 	if (_Mysize != NULL) delete[] _Myptr;
-
 	_Mysize = strlen(rhs._Myptr) + 1;
 	_Myptr = new char[_Mysize];
 	strcpy(_Myptr, rhs._Myptr);
@@ -78,38 +70,13 @@ m_string& m_string::operator=(const m_string& rhs) {
 	return *this;
 }
 
-	//+= 연산자
-m_string& m_string::operator+=(const m_string& rhs) {
-	cout << "* +=연산자" << rhs << endl;
-
-	char* str = new char[_Mysize + rhs._Mysize -1]; //operator+=에서만 쓸 변수
-	strcpy(str, _Myptr);
-	strcat(str, rhs._Myptr);
-	
-	if (_Myptr != NULL) delete[] _Myptr;
-
-	_Myptr = str;
-	return *this;
-	//(연산자 왼쪽.원래 멤버인 문자열, 연산자 오른쪽.rhs로 받은 새로운 문자열)
-}
-
-	//== 연산자
-int m_string::operator==(const m_string& rhs) {
-	cout << "* ==연산자" << rhs << endl;
-
-	if (strcmp(_Myptr, rhs._Myptr)) return -1;
-	else return 0;
-}
-
 	//+ 연산자
 m_string m_string::operator+(const m_string& rhs) {
-	cout << "* +연산자" << rhs << endl;
-
 	char* str = new char[_Mysize + rhs._Mysize - 1]; //operator+에서만 쓸 변수
 	strcpy(str, _Myptr);
 	strcat(str, rhs._Myptr);
 
-	_Mysize = strlen(str)+1;
+	_Mysize = strlen(str) + 1;
 	_Myptr = new char[_Mysize];
 	strcpy(_Myptr, str);
 	delete[] str;
@@ -117,12 +84,18 @@ m_string m_string::operator+(const m_string& rhs) {
 	return *this;
 }
 
+	//== 연산자
+int m_string::operator==(const m_string& rhs) {
+	if (strcmp(_Myptr, rhs._Myptr)) return -1;
+	else return 0;
+}
+
 //길이 구하는 함수 구현
 int m_string::size() {
-	return _Mysize-1;
+	return _Mysize - 1;
 }
 int m_string::length() {
-	return _Mysize-1;
+	return _Mysize - 1;
 }
 
 //c_str
@@ -132,7 +105,7 @@ char* m_string::c_str() const {
 
 int main(void)
 {
-	m_string str1="123";
+	m_string str1 = "123";
 	cout << str1 << " " << str1.size() << endl;
 
 	m_string str2 = str1;
@@ -143,7 +116,7 @@ int main(void)
 
 	str2 = str2 + str1;
 	cout << str2 << " " << str2.size() << endl;
-	
+
 	str2 = str2 + "ab";
 	cout << str2 << " " << str2.size() << endl;
 
