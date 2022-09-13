@@ -1,15 +1,13 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
+template <typename stringT, typename intT>
 class Character {
 public:
-	Character(string n, int h, int a, int d)
-	{
-		name = n;
-		health = h;
-		attack = a;
-		defense = d;
-	}
+
+	Character(stringT name, intT health, intT attack, intT defense) : this->name(name), this->health(h), this->attack(a), this->defense(d) {};
+
 	void view() {
 		cout << "ÀÌ¸§: " << name << endl;
 		cout << "Ã¼·Â: " << health << endl;
@@ -18,12 +16,12 @@ public:
 
 	}
 private:
-	string name;
-	int health, attack, defense;
+	stringT name;
+	intT health, attack, defense;
 };
 
 int main() {
-	Character* jimin = new Character("¹éÁö¹Î", 80, 20, 30);
+	Character<string, int>* jimin = new Character<string, int>("¹éÁö¹Î", 100, 20, 10);
 	jimin->view();
 	delete jimin;
 	return 0;
