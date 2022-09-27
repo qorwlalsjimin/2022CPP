@@ -19,8 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="06-03 순수가상함수.cpp" />
-    <ClCompile Include="08-01 동적배열.cpp" />
+    <ClCompile Include="코드짜보기.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
