@@ -29,6 +29,8 @@ void main(void) {
 	i3[5] = 1149;
 	i3.at(3) = 201;
 
-	for (int i = 0; i < i3.size(); i++)
-		cout << i3[i] << " ";
+	// vector의 모든 원소 출력 (반복자)
+	vector<int>::iterator ptr;
+	for (ptr = i3.begin(); ptr != i3.end(); ptr++)
+		cout << *ptr << " ";
 }
