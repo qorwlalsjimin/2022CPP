@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="코드짜보기.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="08-01 동적배열.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
