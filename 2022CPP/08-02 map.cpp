@@ -20,8 +20,12 @@ void main(void) {
 	//vector의 모든 원소 출력(반복자)
 	map<string, string>::iterator iter;
 	for (iter = IBW.begin(); iter != IBW.end(); iter++)
-		cout << (*iter).first << "역 " << (*iter).second << "분\n";
+		cout << iter->first << "역 " << iter->second << "분\n";
 
+	//"우영우"란 key를 가지는 map
 	map<string, string>::iterator main_person = IBW.find("우영우");
-	cout << "드라마의 주인공은 " << (*main_person).second << "\n";
+
+	// 해당 key가 존재하는지 체크
+	if(main_person != IBW.end())
+		cout << "드라마의 주인공은 " << main_person->second << "\n";
 }
