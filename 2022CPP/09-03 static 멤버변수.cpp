@@ -5,12 +5,7 @@ using namespace std;
 class Champ {
 public:
 	Champ(int age, const string& name);
-	static int getCount(void)
-	{
-		// 에러, static 멤버함수에는 static 멤버변수만 사용가능
-		// _age++;
-		return mCount;
-	}
+	static int getCount(void);
 private:
 	int _age;
 	string _name;
@@ -25,6 +20,13 @@ Champ::Champ(int age, const string& name)
 	++mCount;
 }
 
+int Champ::getCount(void)
+{
+	// 에러, static 멤버함수에는 static 멤버변수만 사용가능
+	// _age++;
+	return mCount;
+}
+
 void main(void)
 {
 	//객체 생성 없이도 static 멤버함수를 사용할 수 있다.
@@ -37,4 +39,8 @@ void main(void)
 	// static 멤버변수 mCount를 모든 객체가 공유한다
 	cout << teemo->getCount() << endl;
 	cout << Champ::getCount() << endl;
+
+	delete(teemo);
+	delete(masteryi);
+	delete(veign);
 }
