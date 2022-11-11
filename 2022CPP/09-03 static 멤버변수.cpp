@@ -20,6 +20,7 @@ Champ::Champ(int age, const string& name)
 	++mCount;
 }
 
+
 int Champ::getCount(void)
 {
 	// 에러, static 멤버함수에는 static 멤버변수만 사용가능
